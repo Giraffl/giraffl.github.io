@@ -49,26 +49,7 @@ label {
 span {
     color: #f27474;
 }
-@media only screen and (max-width: 500px) {
-    label {
-        display: block;
-        cursor: pointer;
-    }
-    .Container {
-        text-align: center;
-        width: 100%;
-        display: none;
-    }
 
-    .Container a {
-        display: block;
-        border-bottom: 1px solid #eaeaeb;
-        margin: 0;
-    }
-    #toggle:checked + .Container {
-        display: block;
-    }
-}
 section {
     height: 30vh;
     display: flex;
