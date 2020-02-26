@@ -1,5 +1,0 @@
-Host: https://giraffl.github.io
-Sitemap: https://giraffl.github.io/sitemap.xml
-
-User-agent: *
-Disallow: 
