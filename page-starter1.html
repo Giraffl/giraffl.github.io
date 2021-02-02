@@ -32,7 +32,14 @@
     <link href="assets/css/theme.css" rel="stylesheet">
 
   </head>
-
+  <script>
+      window.onload = function() {
+          if(!window.location.hash) {
+              window.location = window.location + '#loaded';
+              window.location.reload();
+          }
+      }			
+                </script>
 <script type="text/javascript">
 let time;
 time = 0;
