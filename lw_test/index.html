@@ -1,5 +1,36 @@
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsqnZcch_56fMZAFOeO_eSh2nsqqLFWGY&amp;libraries=places"></script>
+<script>function initialize() {
 
+        var input = document.getElementById('searchTextField');
+
+        var options = {
+          types: ['(cities)'],
+        };
+
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          var place = autocomplete.getPlace(); //получаем место
+          // массив адресов 
+          var address = place.address_components;
+          // населенный пункт в нулевом элементе
+          document.getElementById('city').value = address[0].long_name;
+          // страна в элементе, который в подмассиве types содержит элемент со значением 'country'
+          for (var i = address.length - 1; i > 0; i--) {
+            if (address[i].types.indexOf("country") !== -1) {
+               document.getElementById('country').value = address[i].long_name; 
+              break;
+            }
+          }
+
+          console.log(address);
+//          console.log(place);
+//          console.log(place.name);  //название места
+//          console.log(place.id);  //уникальный идентификатор места
+        });
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);</script>
 
 Введите город: <input id="searchTextField" size="50" type="text" /><br /><br />
 Страна: <input id="country" name="strana" size="50" type="text" /><br />
